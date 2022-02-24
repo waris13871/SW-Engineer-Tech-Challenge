@@ -64,6 +64,9 @@ class SeriesDispatcher:
             # When datasets are received you should collect and process them
             # (e.g. using `asyncio.create_task(self.run_series_collector()`)
             
+            task = asyncio.create_task(self.run_series_collector())
+            #if task is not None:
+                #return task                          
             print("Waiting for Modality")
             await asyncio.sleep(0.2)
 
@@ -71,6 +74,7 @@ class SeriesDispatcher:
         """Runs the collection of datasets, which results in the Series Collector being filled.
         """
         # TODO: Get the data from the SCP and start dispatching
+        task1 = asyncio.create_task1(self.run_series_collector_(dispatch))
         pass
 
     async def dispatch_series_collector(self) -> None:
